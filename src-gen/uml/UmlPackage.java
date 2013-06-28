@@ -19,7 +19,7 @@ import org.eclipse.emf.ecore.EPackage;
  * <!-- end-user-doc -->
  * @see uml.UmlFactory
  * @model kind="package"
- *        annotation="http://www.eclipse.org/emf/2002/GenModel modelDirectory='/ifml/src' modelName='IFML' importerID='org.eclipse.emf.importer.ecore'"
+ *        annotation="http://www.eclipse.org/emf/2002/GenModel modelName='IFML' importerID='org.eclipse.emf.importer.ecore'"
  * @generated
  */
 public interface UmlPackage extends EPackage

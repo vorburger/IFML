@@ -22,7 +22,7 @@ import org.eclipse.emf.ecore.EReference;
  * <!-- end-user-doc -->
  * @see ifml.core.CoreFactory
  * @model kind="package"
- *        annotation="http://www.eclipse.org/emf/2002/GenModel modelDirectory='/ifml/src' modelName='IFML' importerID='org.eclipse.emf.importer.ecore' basePackage='ifml'"
+ *        annotation="http://www.eclipse.org/emf/2002/GenModel modelName='IFML' importerID='org.eclipse.emf.importer.ecore' basePackage='ifml'"
  * @generated
  */
 public interface CorePackage extends EPackage

@@ -4,6 +4,8 @@ package ifml.core;
 
 import org.eclipse.emf.common.util.EList;
 
+import uml.Element;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Content Model</b></em>'.

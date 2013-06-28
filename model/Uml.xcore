@@ -1,5 +1,5 @@
 @Ecore(nsURI="http://www.omg.org/spec/UML")
-@GenModel(modelDirectory="/ifml/src", modelName="IFML", importerID="org.eclipse.emf.importer.ecore")
+@GenModel(modelName="IFML", importerID="org.eclipse.emf.importer.ecore")
 package uml
 
 class Association extends Element {

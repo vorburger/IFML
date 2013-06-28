@@ -1,5 +1,5 @@
 @Ecore(nsURI="http://www.omg.org/spec/IFML/core")
-@GenModel(modelDirectory="/ifml/src", modelName="IFML", importerID="org.eclipse.emf.importer.ecore")
+@GenModel(modelName="IFML", importerID="org.eclipse.emf.importer.ecore")
 package ifml.core
 
 import uml.Behavior

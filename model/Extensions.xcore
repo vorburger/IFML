@@ -1,5 +1,5 @@
 @Ecore(nsPrefix="ext", nsURI="http://www.omg.org/spec/IFML/ext")
-@GenModel(modelDirectory="/ifml/src", modelName="IFML", importerID="org.eclipse.emf.importer.ecore")
+@GenModel(modelName="IFML", importerID="org.eclipse.emf.importer.ecore")
 package ifml.extensions
 
 import ifml.core.Constraint
