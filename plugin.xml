@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated Uml -->
+      <package
+            uri="http://www.omg.org/spec/UML"
+            class="uml.UmlPackage"
+            genModel="model/Uml.xcore"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated Extensions -->
+      <package
+            uri="http://www.omg.org/spec/IFML/ext"
+            class="ifml.extensions.ExtensionsPackage"
+            genModel="model/Extensions.xcore"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated Core -->
+      <package
+            uri="http://www.omg.org/spec/IFML/core"
+            class="ifml.core.CorePackage"
+            genModel="model/Core.xcore"/>
+   </extension>
+
+</plugin>
