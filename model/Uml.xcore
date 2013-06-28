@@ -1,0 +1,30 @@
+@Ecore(nsURI="http://www.omg.org/spec/UML")
+@GenModel(modelDirectory="/ifml/src", modelName="IFML", importerID="org.eclipse.emf.importer.ecore")
+package uml
+
+class Association extends Element {
+}
+
+class Classifier extends Element {
+}
+
+class Element {
+}
+
+class BehavioralFeature {
+}
+
+class Behavior {
+}
+
+class TemplaetableElement extends Element {
+}
+
+class TypedElement extends Element {
+}
+
+class MultiplicityElement extends Element {
+}
+
+class StructuralFeature {
+}

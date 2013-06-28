@@ -1,0 +1,196 @@
+@Ecore(nsURI="http://www.omg.org/spec/IFML/core")
+@GenModel(modelDirectory="/ifml/src", modelName="IFML", importerID="org.eclipse.emf.importer.ecore")
+package ifml.core
+
+import uml.Behavior
+import uml.BehavioralFeature
+import uml.Classifier
+//import uml.Element
+import uml.MultiplicityElement
+import uml.StructuralFeature
+import uml.TemplaetableElement
+import uml.TypedElement
+
+class ViewPoint extends NamedElement {
+	refers unordered InteractionFlowModelElement[] interactionFlowModelElements
+	refers Context[1] context
+}
+
+abstract class InteractionFlowElement extends NamedElement , InteractionFlowModelElement , TemplaetableElement {
+	contains unordered Parameter[] parameters
+	refers unordered InteractionFlow[] inInteractionFlows
+	contains unordered InteractionFlow[] outInteractionFlows
+}
+
+class NavigationFlow extends InteractionFlow {
+	refers unordered DataFlow[] dataFlows
+}
+
+class ActionEvent extends Event {
+}
+
+class InteractionFlowModel extends NamedElement {
+	contains unordered InteractionFlowModelElement[] interactionFlowModelElements
+}
+
+class ParameterBindingGroup extends InteractionFlowModelElement {
+	contains unordered ParameterBinding[] parameterBindings
+}
+
+class ParameterBinding extends InteractionFlowModelElement {
+	refers unordered Parameter[1] sourceParameter
+	refers unordered Parameter[1] targetParameter
+}
+
+class ContentModel extends NamedElement {
+	refers uml.Element[] elements
+}
+
+class ViewElement extends InteractionFlowElement {
+	contains unordered ViewElementEvent[] viewElementEvents
+	refers unordered ActivationExpression activationExpression
+	refers ViewContainer viewContainer
+}
+
+class Action extends InteractionFlowElement {
+	contains unordered ActionEvent[] actionEvents
+	refers DynamicBehavior dynamicBehavior
+}
+
+abstract class Element {
+	unordered String[1] ^id
+	contains unordered Constraint[] constraints
+	contains unordered Annotation[] annotations
+}
+
+class DynamicBehavior extends ContentBinding {
+	refers BehavioralFeature behavioralFeature
+	refers Behavior behavior
+}
+
+class DataFlow extends InteractionFlow {
+}
+
+abstract class InteractionFlow extends InteractionFlowModelElement {
+	refers unordered InteractionFlowElement[1] srcInteractionFlowElement
+	refers unordered InteractionFlowElement[1] trgtInteractionFlowElement
+	contains unordered ParameterBindingGroup parameterBindingGroup
+}
+
+class ViewElementEvent extends Event {
+}
+
+abstract class InteractionFlowModelElement extends Element {
+}
+
+abstract class NamedElement extends Element {
+	unordered String[1] name
+}
+
+class ExternalEvent extends Event {
+}
+
+class Constraint extends BooleanExpression {
+}
+
+class ViewComponentPart extends InteractionFlowElement {
+	contains unordered ViewElementEvent[] viewElementEvents
+	refers unordered ActivationExpression activationExpression
+	refers ViewComponentPart[] subViewComponentParts opposite parentViewComponentPart
+	refers ViewComponentPart[1] parentViewComponentPart opposite subViewComponentParts
+}
+
+class ViewContainer extends ViewElement {
+	unordered boolean[1] isLandMark
+	unordered boolean[1] isDefault
+	contains unordered ViewElement[] viewElements
+}
+
+class IFMLModel extends NamedElement {
+	contains unordered InteractionFlowModel[1] interactionFlowModel
+	contains unordered ContentModel[1] contentModel
+	contains unordered ViewPoint[] interactionFlowModelViewPoints
+}
+
+class Event extends InteractionFlowElement {
+	refers unordered ActivationExpression activationExpression
+	contains unordered NavigationFlow[] navigationFlows
+	contains unordered InteractionFlowExpression interactionFlowExpression
+}
+
+abstract class ContentBinding extends ViewComponentPart {
+	String uniformResourceIdentifier
+}
+
+class InteractionFlowExpression extends Expression {
+	refers unordered InteractionFlow[+] interactionFlows
+}
+
+class DataBinding extends ContentBinding {
+	refers ConditionalExpression[] conditionalExpression
+	refers VisualizationAttribute[] visualizationAttributes
+	refers Classifier[1] classifier
+}
+
+class ViewComponent extends ViewElement {
+	contains ViewComponentPart[] viewComponentParts
+}
+
+class SystemEvent extends Event {
+	contains unordered Expression[+] triggeringExpressions
+	unordered SystemEventTypeEnum[1] ^type
+}
+
+class BooleanExpression extends Expression {
+}
+
+class ActivationExpression extends BooleanExpression {
+}
+
+abstract class Expression extends InteractionFlowModelElement {
+	unordered String[1] language
+	unordered String[1] body
+}
+
+class Parameter extends InteractionFlowModelElement , MultiplicityElement , TypedElement , NamedElement {
+	unordered ParameterKind[1] kind = "ordinary"
+}
+
+enum SystemEventTypeEnum {
+	time
+	specialCondition
+}
+
+class ConditionalExpression extends Expression , ViewComponentPart {
+}
+
+class Context extends Element {
+	refers ContextDimension[] contextDimensions
+}
+
+class ContextDimension extends NamedElement {
+}
+
+class VisualizationAttribute extends ViewComponentPart {
+	refers StructuralFeature structuralFeature
+}
+
+enum ParameterKind {
+	ordinary
+	input
+	output
+	input_output
+}
+
+class Module extends InteractionFlowModelElement {
+	refers Port[+] inputPorts
+	refers Port[+] outputPorts
+	refers InteractionFlowModelElement[+] interactionFlowModelElements
+}
+
+class Port extends InteractionFlowElement {
+}
+
+class Annotation {
+	String text
+}

@@ -1,0 +1,74 @@
+@Ecore(nsPrefix="ext", nsURI="http://www.omg.org/spec/IFML/ext")
+@GenModel(modelDirectory="/ifml/src", modelName="IFML", importerID="org.eclipse.emf.importer.ecore")
+package ifml.extensions
+
+import ifml.core.Constraint
+import ifml.core.ContextDimension
+import ifml.core.Expression
+import ifml.core.Parameter
+import ifml.core.ViewComponent
+import ifml.core.ViewComponentPart
+import ifml.core.ViewContainer
+import ifml.core.ViewElementEvent
+
+class Form extends ViewComponent {
+	refers unordered SubmitEvent[] submitEvent
+}
+
+abstract class Field extends ViewComponentPart {
+}
+
+class SelectionField extends Field {
+	unordered boolean[1] isMultiSelection
+}
+
+class ValidationRule extends Constraint {
+}
+
+class Slot extends ViewComponentPart {
+	refers Parameter parameter
+}
+
+class SortAttribute {
+	unordered SortOrderEnum[1] order
+}
+
+abstract class SelectEvent extends ViewElementEvent {
+}
+
+class List extends ViewComponent {
+	contains unordered SelectEvent[] selectEvent
+	refers SubmitEvent[] submitEvent
+}
+
+class SimpleField extends Field {
+}
+
+class SubmitEvent extends ViewElementEvent {
+}
+
+class Selector extends Expression , ViewComponentPart {
+}
+
+enum SortOrderEnum {
+	ascending
+	descending
+}
+
+class Device extends ContextDimension {
+}
+
+class Position extends ContextDimension {
+}
+
+class UserRole extends ContextDimension {
+}
+
+class Details extends ViewComponent {
+}
+
+class Window extends ViewContainer {
+	boolean isXor
+	boolean isModal
+	boolean isNew
+}
