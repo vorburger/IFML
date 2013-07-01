@@ -19,6 +19,6 @@ Export-Package: uml,
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore,
  org.eclipse.xtext.xbase.lib,
- org.eclipse.emf.ecore.xcore.lib,
+ org.eclipse.emf.ecore.xcore.lib;resolution:=optional,
  ifml;visibility:=reexport
 Bundle-ActivationPolicy: lazy
